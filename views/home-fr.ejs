@@ -1,19 +1,30 @@
 <%- include('header'); -%>
 
-<div style="max-width: fit-content;margin-left: auto; margin-right: auto; text-align: center;">
+<div class="homepage" style="max-width: fit-content;margin-left: auto; margin-right: auto; text-align: center;">
     <h1 style="font-family: 'Ubuntu', sans-serif; text-align: center;">Speed Dating en direct</h1>
     <p style="max-width: fit-content;margin-left: auto; margin-right: auto; text-align: center;">Découvrez le frisson du Speed Dating en direct avec Meetic !
         Connectez-vous avec d'autres célibataires depuis le confort de votre foyer à travers une série de courtes discussions vidéo chronométrées.<br>
         Si un intérêt mutuel se manifeste, Meetic vous aidera à rester en contact.<br>
         Découvrez une façon amusante et excitante de rencontrer des partenaires potentiels avec le Speed Dating en direct par Meetic !</p>
-    <a style=" background-color: #F12A7C; max-width: fit-content;" class="waves-effect waves-light btn" href="/speed-dating"><i class="material-icons right">favorite</i>Rejoignez l'expérience!</a>
+    <a class="waves-effect waves-light btn modal-trigger button-purple" href="#modal1"><i class="material-icons right">favorite</i>Rejoignez l'expérience!</a>
     <br>
-   <img style="width: auto; height: fit-content;"src="https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/929398bf-6631-4904-947e-b976f5d1bdf0/DallEGeneratedImages/dalle-7df1584b-b51c-4733-9d90-a27770e08ada0251683065199606371900.jpg&dcHint=FranceCentral&fileToken=c3c840dd-065a-429d-951e-9e88c6f6868a" alt="Speed Date Image">
+    <br>
+   <img style="width: auto; height: fit-content;"src="/images/Designer.jpeg" alt="Speed Date Image">
 </div>
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <p></p>
-    </div>
+<div class="modal" id="modal1">
+    <%- include('form'); -%>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var selectElems = document.querySelectorAll('select');
+        M.FormSelect.init(selectElems);
+   
+        var modalElems = document.querySelectorAll('.modal');
+        M.Modal.init(modalElems);
 
-</div>
+    });
+
+   
+  </script>
+
 <%- include('footer'); -%>

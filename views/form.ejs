@@ -1,0 +1,34 @@
+<form class="col s12" style="max-width: fit-content; margin-top: 50px; margin-bottom: 50px; margin-left: 50px;" action="/user/submit" method="post">
+        <div class="form-header">
+            <h3>Dites m'en plus sur vous</h3>
+        </div>
+        <div class="form-options">
+            <div class="input-field col s6">
+                <input id="name" name="name" type="text" class="validate">
+                <label for="name">Nom</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="age" name="age" type="text" class="validate">
+                <label for="age">Âge</label>
+            </div>
+            <div class="input-field col s12">
+                <select name="gender">
+                    <option value="" disabled selected>Choisissez une option</option>
+                    <option value="man">Un homme</option>
+                    <option value="women">Une femme</option>
+                </select>
+                <label>Vous êtes...</label>
+            </div>
+            <div class="input-field col s12">
+                <select name="wish">
+                    <option value="" disabled selected>Choisissez une option</option>
+                    <option value="man">Un homme</option>
+                    <option value="women">Une femme</option>
+                </select>
+                <label>Vous cherchez...</label>
+            </div>
+        <div class="form-footer" style="margin-right: auto;" id="buttonfooter">
+            <input class="waves-effect waves-light btn button-purple" type="submit" value="Trouver un partenaire !">
+        </div>
+        </div>
+    </form>
