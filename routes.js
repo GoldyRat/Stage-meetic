@@ -1,8 +1,6 @@
 const router = require('express').Router();
 
-//const userList = require('./db').userDb;
-const userList = [];
-
+const { addUser } = require('./db')
 // Serve `home` view. This renders `views/home.ejs`
 router.get('/', (req, res) => {
   res.redirect('/fr')
@@ -20,9 +18,9 @@ router.get('/en', (req, res) => {
   res.render('home-en');
 });
 router.post('/user/submit', (req,res) => {
-  const userData = req.body;    
-  userList.push({...userData});
-  console.log(userList)
+  const userData = req.body; 
+  addUser(userData);   
+  
 });
 
 module.exports = router;
