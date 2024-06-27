@@ -6,8 +6,8 @@ router.get('/', (req, res) => {
   res.redirect('/fr')
 });
 
-router.get('/speed-dating', (req, res) => {
-  res.render('speed-dating');
+router.get('/speed-dating/:roomId', (req, res) => {
+  res.render('speed-dating', { roomId: req.params.roomId });
 });
 
 router.get('/fr', (req, res) => {
@@ -19,7 +19,9 @@ router.get('/en', (req, res) => {
 });
 router.post('/user/submit', (req,res) => {
   const userData = req.body; 
-  addUser(userData);   
+  
+  userRoom = addUser(userData);
+  res.redirect(`/speed-dating/`+ userRoom);
   
 });
 
