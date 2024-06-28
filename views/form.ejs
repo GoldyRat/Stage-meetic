@@ -1,4 +1,4 @@
-<form class="col s12" style="max-width: fit-content; margin-top: 50px; margin-bottom: 50px; margin-left: 50px;" action="/user/submit" method="post">
+<form class="col s12" style="max-width: fit-content; margin-top: 50px; margin-bottom: 50px; margin-left: 50px;" action="" method="post" id="userForm">
         <div class="form-header">
             <h3>Dites m'en plus sur vous</h3>
         </div>
@@ -28,7 +28,27 @@
                 <label>Vous cherchez...</label>
             </div>
         <div class="form-footer" style="margin-right: auto;" id="buttonfooter">
-            <input class="waves-effect waves-light btn button-purple" type="submit" value="Trouver un partenaire !">
+            <input class="waves-effect waves-light btn button-purple" type="submit" value="Trouver un partenaire !" id="buttonSubmit">
         </div>
         </div>
     </form>
+
+<script>
+    const formElem = document.querySelector("#userForm");
+
+    //submit handler
+
+    formElem.addEventListener("submit", (e) => {
+        // on form submission, prevent default
+        e.preventDefault();
+        const formData = new FormData(formElem);
+        console.log( "formdata :", formData);
+        
+        fetch("/user/submit", {body : formData, method : "post"}).then((value) => {
+            console.log(value);
+            window.location.href= value.url;
+        })
+        
+        
+    });
+</script>

@@ -19,9 +19,9 @@ router.get('/en', (req, res) => {
 });
 router.post('/user/submit', (req, res) => {
   const userData = req.body;
-  // if (req.body.age < 18) {
-  //   //res.status(422).json({errors : [{age : "Vous devez être majeur"}]});
-  // } else {  
+  if (req.body.age < 18) {
+    res.status(422).json({errors : [{age : "Vous devez être majeur"}]});
+  } else {  
     userRoom = checkMatch(userData);
     if (userRoom == undefined) {
         res.render('alert', { message: 'User already exists!' });
@@ -30,7 +30,7 @@ router.post('/user/submit', (req, res) => {
         res.redirect(`/speed-dating/` + userRoom);
     }} 
 
-//}
+}
 );
 
 module.exports = router;
