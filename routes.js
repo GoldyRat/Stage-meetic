@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { addUser } = require('./db')
+const { checkMatch } = require('./db')
 // Serve `home` view. This renders `views/home.ejs`
 router.get('/', (req, res) => {
   res.redirect('/fr')
@@ -17,12 +17,20 @@ router.get('/fr', (req, res) => {
 router.get('/en', (req, res) => {
   res.render('home-en');
 });
-router.post('/user/submit', (req,res) => {
-  const userData = req.body; 
-  
-  userRoom = addUser(userData);
-  res.redirect(`/speed-dating/`+ userRoom);
-  
-});
+router.post('/user/submit', (req, res) => {
+  const userData = req.body;
+  // if (req.body.age < 18) {
+  //   //res.status(422).json({errors : [{age : "Vous devez être majeur"}]});
+  // } else {  
+    userRoom = checkMatch(userData);
+    if (userRoom == undefined) {
+        res.render('alert', { message: 'User already exists!' });
+        
+    } else {
+        res.redirect(`/speed-dating/` + userRoom);
+    }} 
+
+//}
+);
 
 module.exports = router;
